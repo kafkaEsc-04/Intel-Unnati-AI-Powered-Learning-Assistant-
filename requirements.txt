@@ -1,0 +1,6 @@
+streamlit
+langchain
+transformers
+optimum
+optimum-intel
+sentencepiece
