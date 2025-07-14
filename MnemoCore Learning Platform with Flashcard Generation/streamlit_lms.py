@@ -1,3 +1,7 @@
+# sThis program serves as proof of concept for a smart learner management system. 
+# It tracks progress in chapters and generates a revision plan based on the spaced-repetition learning strategy
+# Which is proven to be effective. 
+# It also generates flashcards and summaries for every chapter.
 import streamlit as st
 import os
 import base64

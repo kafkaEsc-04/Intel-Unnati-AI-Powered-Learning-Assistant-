@@ -1,3 +1,4 @@
+#This program was used to create a vectorstore with course material- it's not essential
 from rag_utils import load_documents_from_folder, create_vectorstore
 
 docs = load_documents_from_folder("pdfs")   # folder where PDFs are stored

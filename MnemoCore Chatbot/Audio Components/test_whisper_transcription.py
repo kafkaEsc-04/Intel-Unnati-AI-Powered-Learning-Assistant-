@@ -1,4 +1,4 @@
-# Script to generate a transcript from an MP3 file provided to it.
+#This program is used to generate a transcript from an MP3 file provided to it. It's essentially a test to check if whisper is functioning as expected.
 
 from faster_whisper import WhisperModel
 import sys

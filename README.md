@@ -62,23 +62,35 @@ voice, and visuals while improving student engagement with personalized response
 ## Screenshots:
 ### MnemoCore Chatbot
 ![Chatbot 1](./Assets/chatbot_ss_1.jpg)
+----------------------------------------
 ![Chatbot 2](./Assets/chatbot_ss_2.jpg)
-(More Screenshots will be added in due time)
+---------------------------------------
+![Chatbot 3](./Assets/chatbot_ss_3.png)
+---------------------------------------
+![Chatbot 4](./Assets/chatbot_ss_4.png)
+---------------------------------------
+![Chatbot 5](./Assets/chatbot_ss_5.png)
+---------------------------------------
 ### MnemoCore Course Companion
 ![Course Companion 1](./Assets/course_companion_ss_1.jpg)
+---------------------------------------------------------
 ![Course Companion 2](./Assets/course_companion_ss_2.jpg)
+---------------------------------------------------------
 ![Course Companion 3](./Assets/course_companion_ss_3.png)
+---------------------------------------------------------
 ![Course Companion 4](./Assets/course_companion_ss_4.png)
+---------------------------------------------------------
 
 ## Demo Videos:  
-Note: The videos show the result after the llm has responded to a prompt.   
+Note:
+The inference times in the demo videos here are slow-**upwards of 2-3 minutes on average**. This is because the system I currently have with me for testing is a **7-year old laptop with 8GB of RAM and no GPU**, and as such is not very performant.  
 
-This is due to slow inference times, **upwards of 4 minutes on average**, on the system I currently have with me for testing, which is a **7-year old laptop with 8GB of RAM and no GPU**.   
 
-I will update the repo with links to tests done on my main laptop, which is a much newer model that's equipped with a GPU.  
+### MnemoCore Course Companion:   https://youtu.be/sjx1kb9Jvbs    
 
-- Part 1: https://youtu.be/sjx1kb9Jvbs
-- Part 2: 
+### MnemoCore Assistant Part 1:   https://youtu.be/3Gyc1SHJx_w
+### MnemoCore Assistant Part 2:   https://youtu.be/lPkAdUeulIs
+### MnemoCore Assistant Part 3:   https://youtu.be/84NxpD5FUWw
 
 ## Setup and Installation
 
