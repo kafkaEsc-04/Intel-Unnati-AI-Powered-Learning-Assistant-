@@ -1,0 +1,18 @@
+This is the output from the test_whisper_transcription.py script. I'm adding this file to the repo to demonstrate that whisper is functional. Due to performance limitations for the machine I'm using, I am unable to record a demonstration of the chatbot's functionality to take audio queries.   
+-------------------------------------------------------------------------------------------------------------------------------------------
+PS C:\Users\Rithvik\....> python .\test_whisper_transcription.py .\whisper_test_audio.mp3
+Loading model: guillaumekln/faster-whisper-base
+Transcribing audio file: .\whisper_test_audio.mp3
+
+--- TRANSCRIPTION START ---
+
+[0.00s - 6.56s]:  Hello. This is a test of the whisper speech to text model. Let's see how well it transcribes
+[6.56s - 9.92s]:  this sentence. My name is Sai Rithvik Nama.
+
+--- TRANSCRIPTION END ---
+
+
+Detected language: en
+Language probability: 0.88
+
+-------------------------------------------------------------------------------------------------------------------------------------------
