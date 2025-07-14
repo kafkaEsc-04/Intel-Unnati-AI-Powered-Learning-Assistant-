@@ -1,5 +1,6 @@
-# Intel-Unnati-AI-Powered-Learning-Assistant-
-Project Submission for Intel Unnati Industrial Training Program 2025.
+# Intel Unnati Industrial Training Program 2025
+
+## Problem Statement 4: AI-Powered Interactive Learning Assistant for Classrooms
 
 ## Demo Videos:  
 - Part 1: https://youtu.be/sjx1kb9Jvbs
