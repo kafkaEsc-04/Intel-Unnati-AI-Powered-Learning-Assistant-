@@ -31,6 +31,51 @@ voice, and visuals while improving student engagement with personalized response
 ## Architecture Diagram 
 ![Architecture Diagram](./Assets/2_mnemocore_architecture.svg)
 
+## Methodology:
+Methodology
+
+The implementation of MnemoCore follows a modular, multimodal AI system architecture:
+1. Input Modality Handling
+
+    Text Input: Natural text queries are entered via a chat interface and processed by an OpenVINO-optimized local LLM.
+
+    Voice Input: Speech-to-text conversion is powered by the Whisper model (via faster-whisper), triggered by a built-in voice recorder UI.
+
+    Image Input:
+
+        For diagrams/photos: Image captioning using OpenVINO-converted BLIP.
+
+        For scanned notes/textbooks: OCR with Tesseract to extract relevant text.
+
+    Document Upload: Users can upload PDFs which are indexed per session using Chroma and LangChain’s retriever pipeline.
+
+2. Contextual Understanding
+
+    RAG (Retrieval-Augmented Generation) is used to fetch relevant content from pre-ingested documents and user-uploaded PDFs.
+
+    If the retrieved context is relevant (not empty or noisy), it is injected into the prompt for accurate, contextual responses.
+
+3. Response Generation
+
+    The response is generated using a quantized LLM (OpenVINO-optimized), and may include:
+
+        Textual explanations
+
+        Chart generation (e.g., via matplotlib if needed)
+
+        Summaries of visual or document input
+
+4. Session Memory
+
+    Each conversation is stored in a persistent, session-specific memory.
+
+    Uploaded files and generated responses are isolated per session to enable personalized interactions.
+
+5. Optimization for Intel Hardware
+
+    OpenVINO backend is used to run the LLM and image models efficiently on CPU (tested on i7-8550U, 8GB RAM).
+
+    Models are quantized to INT8 or FP16 as needed for faster inference.
 
 ## Tech Stack
 ### MnemoCore Chatbot:
@@ -154,6 +199,63 @@ streamlit run app.py
 ``` bash
 streamlit run streamlit_lms.py
 ```
+----
+## Future Improvements:
 
+
+### Short-Term Objectives
+
+#### 1. **Multilingual Query Support**
+- Integrate Whisper large model (CPU-optimized) for Indian language transcription.
+- Add IndicNLP or AI4Bharat embeddings for context-aware RAG in Hindi and other regional languages.
+
+#### 2. **Improved PDF Chunking + Metadata-Aware Retrieval**
+- Implement semantic chunking using sentence boundaries and headings.
+- Tag document chunks with metadata (e.g., subject, topic) for scoped search and filtered retrieval.
+
+#### 3. **Model Caching & Session Performance Optimization**
+- Add persistent session-level caching for:
+  - Retrieved chunks (via LangChain's retriever cache)
+  - Tokenized inputs for repeated prompts
+- Reduce redundant inference overhead in long sessions.
+
+---
+### Longer-Term Implementation
+
+#### 1. **Facial Emotion-Based Engagement Detection**
+- Integrate OpenCV + `FER` or `DeepFace` models to detect:
+  - Disengagement
+  - Confusion or boredom
+- Use feedback loop to alter explanation style or slow down delivery.
+
+#### 2. **Adaptive Teaching Assistant Loop**
+- Track query success rate, user feedback score, and query categories.
+- Implement RLHF-like feedback system to prioritize:
+  - Easier analogies for weak topics
+  - More examples for high-error categories
+
+#### 3. **Curriculum Alignment**
+- Create modular curriculum packs per grade level (K-12 or university courses).
+- Include topic classification models for automatic alignment with uploaded PDFs.
+
+#### 4. **Teacher Analytics Dashboard**
+- Backend:
+  - Store chat metadata, session usage logs, and topic frequency in a lightweight SQLite or NoSQL DB.
+- Frontend:
+  - Display heatmaps for common student doubts
+  - Material upload interface with tagging and bulk ingestion
+
+#### 5. **Edge-Optimized Multimodal Pipeline**
+- Quantize OCR + captioning + LLM models using NNCF or OpenVINO INT8 pipelines.
+- Integrate Intel NPU (if available) and test power-efficiency vs CPU fallback.
+
+------
 ## Credits
-Built by Sai Rithvik Nama
+Built by Sai Rithvik Nama with aid and guidance from Mrs. Vibha Prabhu and Mr. Debdyut Hajra.
+
+## Acknowledgements
+1. [Intel OpenVino](https://www.intel.com/content/www/us/en/developer/tools/openvino-toolkit/overview.html)  
+2. [Hugging Face](https://huggingface.co/)  
+3. [Tesseract OCR](github.com/tesseract-ocr/tesseract)
+4. [LangChain](https://github.com/langchain-ai/langchain)
+
